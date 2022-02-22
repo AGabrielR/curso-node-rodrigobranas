@@ -1,9 +1,6 @@
 exports.onReadable = function (callback) {
-    proccess.stdin.on('readable', function () {
-        var chunck = processs.stdin.read();
-        if (chunck !== null) {
-            var datta = chunck.toString().replace(/\n/, '');
-            callback(data);
-        }
+    process.stdin.on('readable', function () {
+        var chunck = process.stdin.read();
+        if (chunck) callback(chunck.toString().replace(/\n/, ''));
     });
 };
